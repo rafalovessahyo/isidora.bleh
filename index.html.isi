@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>for isidora ♡</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #030303;
+      color: #ffc1dc;
+      font-family: "Nunito", sans-serif;
+      overflow-x: hidden;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* =========================
+       BACKGROUND
+    ========================= */
+
+    #particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      color: #ffb6d5;
+      opacity: .18;
+      font-size: 12px;
+      animation: drift linear infinite;
+    }
+
+    @keyframes drift {
+      from {
+        transform: translateY(110vh) rotate(0deg);
+      }
+
+      to {
+        transform: translateY(-15vh) rotate(360deg);
+      }
+    }
+
+    /* =========================
+       OPENING
+    ========================= */
+
+    #opening {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 25px;
+      position: relative;
+      z-index: 2;
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .opening-heart {
+      font-size: 30px;
+      margin-bottom: 25px;
+      animation: heartbeat 2s ease-in-out infinite;
+    }
+
+    .opening-title {
+      font-size: clamp(2.4rem, 10vw, 6rem);
+      font-weight: 900;
+      color: #ffc1dc;
+      line-height: 1;
+      letter-spacing: -2px;
+      text-shadow:
+        0 0 20px rgba(255, 180, 215, .15),
+        0 0 60px rgba(255, 180, 215, .08);
+    }
+
+    .opening-subtitle {
+      margin-top: 16px;
+      font-size: clamp(1rem, 4vw, 1.5rem);
+      font-weight: 800;
+      color: #ff9fc9;
+    }
+
+    .open-button {
+      margin-top: 45px;
+      border: 1px solid #ffc1dc;
+      background: #ffc1dc;
+      color: #090909;
+      padding: 15px 32px;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      transition: all .3s ease;
+      box-shadow:
+        0 0 20px rgba(255, 193, 220, .15),
+        0 0 60px rgba(255, 193, 220, .05);
+    }
+
+    .open-button:hover {
+      transform: scale(1.08);
+      box-shadow:
+        0 0 30px rgba(255, 193, 220, .3),
+        0 0 80px rgba(255, 193, 220, .1);
+    }
+
+    .open-button:active {
+      transform: scale(.95);
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.18);
+      }
+    }
+
+    /* =========================
+       MUSIC
+    ========================= */
+
+    #musicButton {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 50;
+
+      width: 46px;
+      height: 46px;
+
+      border-radius: 50%;
+      border: 1px solid rgba(255, 193, 220, .45);
+
+      background: rgba(12, 12, 12, .85);
+      color: #ffc1dc;
+
+      cursor: pointer;
+      font-size: 18px;
+
+      backdrop-filter: blur(10px);
+
+      opacity: 0;
+      pointer-events: none;
+
+      transition: .3s ease;
+    }
+
+    #musicButton.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #musicButton:hover {
+      transform: scale(1.1);
+      border-color: #ffc1dc;
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    #main {
+      display: none;
+      width: 100%;
+      max-width: 850px;
+      margin: auto;
+      padding: 80px 20px 120px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .section {
+      margin-bottom: 80px;
+      animation: appear .9s ease both;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .intro-title {
+      text-align: center;
+      font-size: clamp(1.8rem, 7vw, 3rem);
+      font-weight: 900;
+      margin-bottom: 40px;
+    }
+
+    .text {
+      color: #ffd7e7;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      font-weight: 500;
+    }
+
+    .paragraph {
+      margin-bottom: 26px;
+    }
+
+    .highlight {
+      color: #ff9fc9;
+      font-weight: 900;
+    }
+
+    /* =========================
+       MESSAGE SCREENSHOTS
+    ========================= */
+
+    .quote-box {
+      margin: 35px auto;
+      max-width: 700px;
+      padding: 24px;
+      border-left: 2px solid #ffb0d2;
+      background: rgba(255, 176, 210, .035);
+      border-radius: 0 15px 15px 0;
+      color: #ffb0d2;
+      font-weight: 800;
+      line-height: 1.7;
+    }
+
+    .screenshots {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      margin: 35px 0 65px;
+    }
+
+    .screenshots img {
+      width: 100%;
+      max-width: 680px;
+      margin: auto;
+      display: block;
+
+      border-radius: 20px;
+      border: 1px solid rgba(255, 193, 220, .3);
+
+      box-shadow:
+        0 15px 60px rgba(0, 0, 0, .7),
+        0 0 30px rgba(255, 193, 220, .04);
+
+      transition: .4s ease;
+    }
+
+    .screenshots img:hover {
+      transform: scale(1.015);
+      border-color: rgba(255, 193, 220, .6);
+    }
+
+    /* =========================
+       THINGS
+    ========================= */
+
+    .things-title {
+      text-align: center;
+      margin-bottom: 12px;
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      font-weight: 900;
+    }
+
+    .things-subtitle {
+      text-align: center;
+      color: #bd7f9d;
+      margin-bottom: 35px;
+    }
+
+    .counter {
+      text-align: center;
+      color: #ffb0d2;
+      font-size: .9rem;
+      font-weight: 800;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .card {
+      background: rgba(13, 13, 13, .9);
+      border: 1px solid rgba(255, 193, 220, .18);
+      border-radius: 22px;
+      overflow: hidden;
+      transition: .4s ease;
+    }
+
+    .card.open {
+      border-color: rgba(255, 193, 220, .7);
+      box-shadow:
+        0 15px 50px rgba(255, 176, 210, .07),
+        0 0 25px rgba(255, 176, 210, .03);
+    }
+
+    .card-header {
+      width: 100%;
+      padding: 22px;
+      background: transparent;
+      border: 0;
+      color: #ffc1dc;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      font-size: 1rem;
+      font-weight: 900;
+
+      cursor: pointer;
+      text-align: left;
+
+      transition: .25s ease;
+    }
+
+    .card-header:hover {
+      background: rgba(255, 193, 220, .025);
+    }
+
+    .arrow {
+      transition: transform .35s ease;
+      font-size: 16px;
+    }
+
+    .card.open .arrow {
+      transform: rotate(180deg);
+    }
+
+    .card-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .7s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .card-inner {
+      padding: 0 22px 30px;
+    }
+
+    .card-image {
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+
+      display: block;
+
+      border-radius: 17px;
+      margin-bottom: 25px;
+
+      animation: imageAppear .6s ease both;
+    }
+
+    @keyframes imageAppear {
+      from {
+        opacity: 0;
+        transform: scale(.97);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .card-title {
+      color: #ffb0d2;
+      font-size: 1.35rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .card-text {
+      color: #ffd7e7;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    /* =========================
+       COMPLETION
+    ========================= */
+
+    #completion {
+      display: none;
+      text-align: center;
+      margin-top: 80px;
+      padding: 45px 20px;
+      animation: appear 1s ease both;
+    }
+
+    #completion h2 {
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    #completion p {
+      color: #c88ba8;
+    }
+
+    .completion-hearts {
+      font-size: 25px;
+      margin-top: 25px;
+      letter-spacing: 8px;
+    }
+
+    /* =========================
+       SECRET PSSST
+    ========================= */
+
+    #secretCaller {
+      display: none;
+
+      position: relative;
+
+      text-align: right;
+      margin-top: 55px;
+      min-height: 80px;
+    }
+
+    #pssst {
+      display: inline-block;
+
+      color: #ffb0d2;
+      font-size: .95rem;
+      font-weight: 800;
+
+      cursor: pointer;
+
+      opacity: 0;
+
+      animation:
+        whisper 2.5s ease-in-out infinite;
+
+      user-select: none;
+    }
+
+    @keyframes whisper {
+      0%, 100% {
+        opacity: .15;
+        transform: translateX(0);
+      }
+
+      50% {
+        opacity: 1;
+        transform: translateX(-5px);
+      }
+    }
+
+    #pssst:hover {
+      color: #ffcce1;
+      text-shadow: 0 0 15px rgba(255, 193, 220, .4);
+    }
+
+    /* =========================
+       SECRET SCREEN
+    ========================= */
+
+    #secretScreen {
+      display: none;
+
+      position: fixed;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(255, 130, 180, .06),
+          #030303 65%
+        );
+
+      z-index: 100;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 30px;
+
+      overflow-y: auto;
+    }
+
+    .secret-content {
+      max-width: 750px;
+      text-align: center;
+
+      animation: secretAppear 1.2s ease both;
+    }
+
+    @keyframes secretAppear {
+      from {
+        opacity: 0;
+        transform: translateY(35px) scale(.96);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .secret-small {
+      color: #bd7f9d;
+      font-size: .95rem;
+      font-weight: 800;
+      margin-bottom: 30px;
+    }
+
+    .secret-title {
+      font-size: clamp(1.5rem, 6vw, 2.5rem);
+      font-weight: 900;
+      margin-bottom: 45px;
+      color: #ffc1dc;
+    }
+
+    .secret-message {
+      color: #ffd7e7;
+      font-size: clamp(1rem, 3.8vw, 1.2rem);
+      line-height: 2;
+
+      text-align: center;
+    }
+
+    .secret-message strong {
+      display: block;
+      margin-top: 35px;
+
+      color: #ff9fc9;
+
+      font-size: clamp(1.5rem, 6vw, 2.5rem);
+      font-weight: 900;
+    }
+
+    .close-secret {
+      margin-top: 45px;
+
+      background: transparent;
+      border: 1px solid rgba(255, 193, 220, .45);
+
+      color: #ffb0d2;
+
+      padding: 10px 20px;
+      border-radius: 999px;
+
+      cursor: pointer;
+      font-weight: 800;
+
+      transition: .3s ease;
+    }
+
+    .close-secret:hover {
+      background: #ffc1dc;
+      color: #050505;
+    }
+
+    /* =========================
+       FINAL
+    ========================= */
+
+    .final {
+      text-align: center;
+      margin-top: 90px;
+      padding-bottom: 100px;
+    }
+
+    .final-heart {
+      font-size: 38px;
+      margin-bottom: 30px;
+      animation: heartbeat 2.5s ease-in-out infinite;
+    }
+
+    .final p {
+      color: #ffd7e7;
+      line-height: 1.9;
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+    }
+
+    .final-important {
+      color: #ffb0d2 !important;
+      font-size: clamp(1.5rem, 6vw, 2.4rem) !important;
+      font-weight: 900;
+      margin-top: 45px;
+    }
+
+    .signature {
+      margin-top: 55px;
+      color: #9b627d;
+      font-size: .82rem;
+      letter-spacing: .5px;
+    }
+
+    /* =========================
+       HEART RAIN
+    ========================= */
+
+    .falling-heart {
+      position: fixed;
+      top: -30px;
+      z-index: 150;
+      pointer-events: none;
+
+      color: #ffb0d2;
+
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      from {
+        transform: translateY(-30px) rotate(0deg);
+        opacity: 1;
+      }
+
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      #main {
+        padding: 60px 16px 100px;
+      }
+
+      .text {
+        font-size: .98rem;
+      }
+
+      .card-header {
+        padding: 20px 17px;
+      }
+
+      .card-inner {
+        padding: 0 17px 25px;
+      }
+
+      .quote-box {
+        padding: 18px;
+      }
+
+      #secretScreen {
+        padding: 25px 18px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- FLOATING BACKGROUND -->
+
+  <div id="particles"></div>
+
+
+  <!-- MUSIC -->
+
+  <audio id="music" loop preload="auto">
+    <source src="https://files.catbox.moe/63bubd.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="musicButton" onclick="toggleMusic()" aria-label="music">
+    ♫
+  </button>
+
+
+  <!-- =========================
+       OPENING
+  ========================= -->
+
+  <section id="opening">
+
+    <div class="opening-heart">
+      ♡
+    </div>
+
+    <h1 class="opening-title">
+      HEY, FOFINHA!
+    </h1>
+
+    <div class="opening-subtitle">
+      OKAY... I MADE SMTG ELSE 👶
+    </div>
+
+    <button class="open-button" onclick="openSite()">
+      OPEN IT ♡
+    </button>
+
+  </section>
+
+
+  <!-- =========================
+       MAIN
+  ========================= -->
+
+  <main id="main">
+
+
+    <!-- INTRO -->
+
+    <section class="section">
+
+      <h2 class="intro-title">
+        okay... here we go.
+      </h2>
+
+      <div class="text">
+
+        <p class="paragraph">
+          okei im probably going to spend the whole night making this second website for you bc u didnt give me the chance to do the first one properly🤬
+        </p>
+
+        <p class="paragraph">
+          i wanted to send it to u at midnight and do everything the right way. but u didnt cooperate 🙄
+        </p>
+
+        <p class="paragraph">
+          and dont worry about how difficult it is to make this website, bc i genuinely enjoy doing this. it helps me learn, u know?
+        </p>
+
+        <p class="paragraph">
+          anyway, either way, im going to keep going.
+        </p>
+
+        <p class="paragraph">
+          u make me want to keep living. to the point where all of my friends have used you as a reason whenever i was about to give up.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- FRIENDS -->
+
+    <section class="section">
+
+      <div class="quote-box">
+
+        they'd say,
+
+        <br>
+
+        <span>
+          “What about Isi? How would she feel? Think about her!”
+        </span>
+
+      </div>
+
+
+      <div class="screenshots">
+
+        <img
+          src="https://i.supaimg.com/90ccacbc-23d4-4620-aae0-6472777c9e29/abc2aa2e-2698-4b5e-9bb3-9f8d417e3bf5.jpg"
+          alt="messages"
+        >
+
+        <img
+          src="https://i.supaimg.com/90ccacbc-23d4-4620-aae0-6472777c9e29/fdd1653b-6af3-467d-85dc-e3d86010dfbc.jpg"
+          alt="messages"
+        >
+
+      </div>
+
+
+      <div class="text">
+
+        <p class="paragraph">
+          and okay... that was actually really surprising to me. can u even realize that?
+        </p>
+
+        <p class="paragraph">
+          u became one of the reasons i keep going. and im sorry if that ever makes u feel pressured or overwhelmed by how much i care about u, but thats just how i am. i love people intensely.
+        </p>
+
+        <p class="paragraph">
+          and yeah i could put every single thing that reminds me of you here... wait.
+        </p>
+
+        <p class="paragraph">
+          okay, im going to. and i want you to pay attention. PLEASE.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FIVE THINGS
+    ========================= -->
+
+    <section class="section">
+
+      <h2 class="things-title">
+        things that remind me of you
+      </h2>
+
+      <p class="things-subtitle">
+        click each one. go on, im waiting 👀
+      </p>
+
+      <div class="counter" id="counter">
+        0 / 5 ♡
+      </div>
+
+
+      <div class="cards">
+
+
+        <!-- JIHYO -->
+
+        <div class="card">
+
+          <button class="card-header" onclick="toggleCard(this, 1)">
+
+            <span>
+              01 — PARK JIHYO
+            </span>
+
+            <span class="arrow">
+              ↓
+            </span>
+
+          </button>
+
+
+          <div class="card-content">
+
+            <div class="card-inner">
+
+              <img
+                class="card-image"
+                src="https://i.supaimg.com/90ccacbc-23d4-4620-aae0-6472777c9e29/7a771b35-b2a7-4288-b4a6-8bb29c14e28d.jpg"
+                alt="Jihyo"
+              >
+
+              <div class="card-title">
+                1 — Park Jihyo.
+              </div>
+
+              <div class="card-text">
+                yeeah she's always been my utt, but now she reminds me of you too. dont ask me why.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- SUNFLOWERS -->
+
+        <div class="card">
+
+          <button class="card-header" onclick="toggleCard(this, 2)">
+
+            <span>
+              02 — SUNFLOWERS
+            </span>
+
+            <span class="arrow">
+              ↓
+            </span>
+
+          </button>
+
+
+          <div class="card-content">
+
+            <div class="card-inner">
+
+              <img
+                class="card-image"
+                src="https://i.supaimg.com/90ccacbc-23d4-4620-aae0-6472777c9e29/e36da9b4-d8ea-4292-9ec5-5983edcaa9c6.webp"
+                alt="sunflowers"
+              >
+
+              <div class="card-title">
+                2 — Sunflowers.
+              </div>
+
+              <div class="card-text">
+                u once told me that sunflowers were your favorite flowers and somehow, that stayed in my head forever.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- POOH -->
+
+        <div class="card">
+
+          <button class="card-header" onclick="toggleCard(this, 3)">
+
+            <span>
+              03 — WINNIE THE POOH
+            </span>
+
+            <span class="arrow">
+              ↓
+            </span>
+
+          </button>
+
+
+          <div class="card-content">
+
+            <div class="card-inner">
+
+              <img
+                class="card-image"
+                src="https://i.supaimg.com/90ccacbc-23d4-4620-aae0-6472777c9e29/de6d1d79-de10-470a-a132-e9ed4b5745ee.jpg"
+                alt="Winnie the Pooh"
+              >
+
+              <div class="card-title">
+                3 — Winnie the Pooh.
+              </div>
+
+              <div class="card-text">
+                i told you it was good to know that, right?
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PINK -->
+
+        <div class="card">
+
+          <button class="card-header" onclick="toggleCard(this, 4)">
+
+            <span>
+              04 — THE COLOR PINK
+            </span>
+
+            <span class="arrow">
+              ↓
+            </span>
+
+          </button>
+
+
+          <div class="card-content">
+
+            <div class="card-inner">
+
+              <img
+                class="card-image"
+                src="https://i.supaimg.com/90ccacbc-23d4-4620-aae0-6472777c9e29/ebfc005c-f88f-4838-a7df-3b1a60e55074.jpg"
+                alt="pink"
+              >
+
+              <div class="card-title">
+                4 — The color pink.
+              </div>
+
+              <div class="card-text">
+                i remember that from some of the very first times we talked... its hard to forget, i admit.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- CHILE -->
+
+        <div class="card">
+
+          <button class="card-header" onclick="toggleCard(this, 5)">
+
+            <span>
+              05 — CHILE
+            </span>
+
+            <span class="arrow">
+              ↓
+            </span>
+
+          </button>
+
+
+          <div class="card-content">
+
+            <div class="card-inner">
+
+              <img
+                class="card-image"
+                src="https://i.supaimg.com/90ccacbc-23d4-4620-aae0-6472777c9e29/4f9b22cd-37bc-4b71-a28e-508c746567c5.jpg"
+                alt="Chile"
+              >
+
+              <div class="card-title">
+                5 — Chile.
+              </div>
+
+              <div class="card-text">
+                yea baabe Chile reminds me of you. Santiago reminds me of u.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <!-- COMPLETION -->
+
+      <div id="completion">
+
+        <h2>
+          5 / 5 ♡
+        </h2>
+
+        <p>
+          you found all five.
+        </p>
+
+        <div class="completion-hearts">
+          ♡ ♡ ♡
+        </div>
+
+      </div>
+
+
+      <!-- PSSST -->
+
+      <div id="secretCaller">
+
+        <span id="pssst" onclick="openSecret()">
+          pssst...
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FINAL
+    ========================= -->
+
+    <section class="final">
+
+      <div class="final-heart">
+        ♡
+      </div>
+
+      <p>
+        it was only five things, but every single one of them reminds me every day of how important you are to me. of how much of an impact you've had on my life, Isidora.
+      </p>
+
+      <p>
+        i love your eyes, and i adore your voice. you're my best friend. and you're one of the most amazing people I've ever met.
+      </p>
+
+      <p class="final-important">
+        so plz, don't ever disappear from my life.
+      </p>
+
+      <p>
+        And ill always do my best to stay by your side too. ♡
+      </p>
+
+      <div class="signature">
+        made at 04:47 AM.
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =========================
+       SECRET MESSAGE
+  ========================= -->
+
+  <div id="secretScreen">
+
+    <div class="secret-content">
+
+      <div class="secret-small">
+        okay... one more thing.
+      </div>
+
+      <div class="secret-title">
+        you really thought that was everything?
+      </div>
+
+      <div class="secret-message">
+
+        of all the people ive ever loved, you stood out the most.
+
+        <br>
+
+        all my poems would bear your name if i were to be specific.
+
+        <br><br>
+
+        Isidora, ur heart has room for the whole world n that only shows how incredible you are
+
+        <strong>
+          i love you
+        </strong>
+
+      </div>
+
+      <button class="close-secret" onclick="closeSecret()">
+        close ♡
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    /* =========================
+       FLOATING PARTICLES
+    ========================= */
+
+    const particleContainer =
+      document.getElementById("particles");
+
+    const particleSymbols = [
+      "♡",
+      "♡",
+      "·",
+      "✦",
+      "♡",
+      "✧"
+    ];
+
+    for (let i = 0; i < 35; i++) {
+
+      const particle =
+        document.createElement("span");
+
+      particle.className = "particle";
+
+      particle.innerText =
+        particleSymbols[
+          Math.floor(
+            Math.random() *
+            particleSymbols.length
+          )
+        ];
+
+      particle.style.left =
+        Math.random() * 100 + "%";
+
+      particle.style.animationDuration =
+        (12 + Math.random() * 18) + "s";
+
+      particle.style.animationDelay =
+        (-Math.random() * 20) + "s";
+
+      particle.style.fontSize =
+        (8 + Math.random() * 12) + "px";
+
+      particleContainer.appendChild(particle);
+
+    }
+
+
+    /* =========================
+       OPEN SITE
+    ========================= */
+
+    function openSite() {
+
+      const music =
+        document.getElementById("music");
+
+      const opening =
+        document.getElementById("opening");
+
+      const main =
+        document.getElementById("main");
+
+      const musicButton =
+        document.getElementById("musicButton");
+
+
+      /*
+        The click allows the browser
+        to start the audio.
+      */
+
+      music.volume = 0.35;
+
+      music.play()
+        .catch(() => {});
+
+
+      opening.style.opacity = "0";
+      opening.style.transform = "scale(1.04)";
+
+
+      setTimeout(() => {
+
+        opening.style.display = "none";
+
+        main.style.display = "block";
+
+        musicButton.classList.add("visible");
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      }, 800);
+
+    }
+
+
+    /* =========================
+       MUSIC BUTTON
+    ========================= */
+
+    function toggleMusic() {
+
+      const music =
+        document.getElementById("music");
+
+      const button =
+        document.getElementById("musicButton");
+
+
+      if (music.paused) {
+
+        music.play()
+          .catch(() => {});
+
+        button.innerText = "♫";
+
+      } else {
+
+        music.pause();
+
+        button.innerText = "Ⅱ";
+
+      }
+
+    }
+
+
+    /* =========================
+       CARDS
+    ========================= */
+
+    const openedCards = new Set();
+
+
+    function toggleCard(button, number) {
+
+      const card =
+        button.parentElement;
+
+      const content =
+        card.querySelector(".card-content");
+
+      const isOpen =
+        card.classList.contains("open");
+
+
+      if (isOpen) {
+
+        content.style.maxHeight = "0px";
+
+        card.classList.remove("open");
+
+        return;
+
+      }
+
+
+      content.style.maxHeight =
+        content.scrollHeight + "px";
+
+      card.classList.add("open");
+
+
+      openedCards.add(number);
+
+      updateCounter();
+
+    }
+
+
+    /* =========================
+       COUNTER
+    ========================= */
+
+    function updateCounter() {
+
+      const counter =
+        document.getElementById("counter");
+
+      const amount =
+        openedCards.size;
+
+
+      counter.innerText =
+        amount + " / 5 ♡";
+
+
+      if (amount === 5) {
+
+        showCompletion();
+
+      }
+
+    }
+
+
+    /* =========================
+       COMPLETION
+    ========================= */
+
+    function showCompletion() {
+
+      const completion =
+        document.getElementById("completion");
+
+      const secretCaller =
+        document.getElementById("secretCaller");
+
+
+      completion.style.display =
+        "block";
+
+
+      setTimeout(() => {
+
+        secretCaller.style.display =
+          "block";
+
+      }, 1800);
+
+    }
+
+
+    /* =========================
+       SECRET
+    ========================= */
+
+    function openSecret() {
+
+      const screen =
+        document.getElementById("secretScreen");
+
+
+      screen.style.display =
+        "flex";
+
+
+      document.body.style.overflow =
+        "hidden";
+
+
+      createHeartRain();
+
+    }
+
+
+    function closeSecret() {
+
+      const screen =
+        document.getElementById("secretScreen");
+
+
+      screen.style.display =
+        "none";
+
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    /* =========================
+       HEART RAIN
+    ========================= */
+
+    function createHeartRain() {
+
+      for (let i = 0; i < 45; i++) {
+
+        setTimeout(() => {
+
+          const heart =
+            document.createElement("span");
+
+          heart.className =
+            "falling-heart";
+
+          heart.innerText =
+            Math.random() > .2
+              ? "♡"
+              : "♥";
+
+
+          heart.style.left =
+            Math.random() * 100 + "vw";
+
+
+          heart.style.fontSize =
+            (10 + Math.random() * 18) + "px";
+
+
+          heart.style.animationDuration =
+            (3 + Math.random() * 4) + "s";
+
+
+          document.body.appendChild(heart);
+
+
+          setTimeout(() => {
+
+            heart.remove();
+
+          }, 7500);
+
+        }, i * 90);
+
+      }
+
+    }
+
+  </script>
+
+</body>
+      </html>
